@@ -1,52 +1,19 @@
-# Prerequisites
-*.d
+# Packaged app and toolbox files
+*.mlappinstall
+*.mltbx
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Generated helpsearch folders
+helpsearch*/
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Simulink code generation folders
+slprj/
+sccprj/
 
-# Precompiled Headers
-*.gch
-*.pch
+# Matlab code generation folders
+codegen/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Simulink autosave extension
+*.autosave
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Simulink cache files
+*.slxc
