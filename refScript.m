@@ -13,10 +13,10 @@ add_block('fuelCellLibrary/fuelCell','standaloneSim/fuelCell');
 % work for now
 
 % Add sources
-add_block('simulink/Sources/In1','standaloneSim/hydrogen');
-add_block('simulink/Sources/In1','standaloneSim/air');
+add_block('simulink/Sources/In Bus Element','standaloneSim/hydrogen');
+add_block('simulink/Sources/In Bus Element','standaloneSim/air');
 
-% Connect inpus
+% Connect inputs
 phHy = get_param('standaloneSim/hydrogen','PortHandles');
 phAir = get_param('standaloneSim/air','PortHandles');
 phSys = get_param('standaloneSim/fuelCell','PortHandles');
@@ -44,14 +44,16 @@ user.air.massFlow = 1.2 + (user.timeProfile .* 0);
 % Set the External Inputs for the system
 set_param('standaloneSim','LoadExternalInput','on');
 set_param('standaloneSim','ExternalInput', ...
-    '[user.timeProfile, user.hydrogen.temperature, user.air.temperature]');
+    '[user.timeProfile, user.hydrogen, user.air]');
 % Can't appear to pass structs, since they don't line up with the time
 % values
 % It also appears you need 'root level input ports', which is annoying...
+% In Bus Elements might be a way to pass structs -- nevermind, they seem to
+% work like bus selectors which isn't what I want
 
 %% Set block choice
-fuelCell.blockChoice = 'dummy';
+fuelCell.blockChoice = 'baseModel';
 % Confirmed that this works
 
 %% Run the simulation
-out2 = sim('standaloneSim');
+out = sim('standaloneSim');
