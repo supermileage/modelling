@@ -4,10 +4,12 @@ classdef Component
     
     % Public properties
     properties
+        
         name;
         libraryName;
         blockChoice;
         initialized = false;
+        
     end
     
     % Private properties
@@ -30,6 +32,16 @@ classdef Component
             % Find subcomponents
             
             % Perform recursive getSubComponents
+        end
+        
+        function success = initializeSubComponents(obj)
+            %INITIALIZESUBCOMPONENTS  Initialize all subcomponents of the
+            %object
+            
+            subComponents = obj.getSubComponents();
+            
+            % Initialize all the subcomponents
+            
         end
     end
 end
