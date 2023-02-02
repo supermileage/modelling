@@ -12,5 +12,8 @@ user.timeProfile = [0 : 0.1 : 10];
 user.vehicleSpeed = 7 * user.timeProfile;
 
 % Create the assumption set
+assump = AssumptionSet(aero, user);
 
 % Create and run the simulation
+aeroSim = Simulation(assump);
+res = aeroSim.run();

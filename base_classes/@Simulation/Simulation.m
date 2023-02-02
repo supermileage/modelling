@@ -14,7 +14,7 @@ classdef Simulation
         end
         
         function res = run(obj)
-            %METHOD1 Summary of this method goes here
+            %RUN  Runs the Simulation object
             %   Detailed explanation goes here
             
             % Extract Component and User from AssumptionSet
@@ -28,8 +28,8 @@ classdef Simulation
             new_system(modelName);
             
             % Add component block
-            add_block(strcat(comp.libraryName, '/', comp.name), ...
-                      modelName);
+            add_block([comp.libraryName, '/', comp.name], ...
+                      [modelName, '/', comp.name]);
             
             % Set inputs for the system
                   

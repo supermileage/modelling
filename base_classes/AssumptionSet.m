@@ -15,10 +15,10 @@ classdef AssumptionSet
             obj.user = user;
         end
         
-        function outputArg = initialize(obj)
+        function success = initialize(obj)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
-            outputArg = obj.Property1 + inputArg;
+            success = obj.component.initialize();
         end
     end
 end
