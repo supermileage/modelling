@@ -8,8 +8,11 @@ aero = aero_assump_2006Prototype;
 
 % Define the user
 user = AeroUser();
+user.startTime = 0;
+user.stopTime = 10;
 user.timeProfile = [0 : 0.1 : 10];
 user.vehicleSpeed = 7 * user.timeProfile;
+user.crosswind = 0 * user.timeProfile;
 
 % Create the assumption set
 assump = AssumptionSet(aero, user);
