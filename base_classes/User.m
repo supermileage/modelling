@@ -1,6 +1,20 @@
 classdef User
-    %USER Summary of this class goes here
+    %USER  Top-level User class definition
     %   Detailed explanation goes here
+    %
+    %   PROPERTIES
+    %       name
+    %       startTime
+    %       stopTime
+    %       timeProfile
+    %
+    %   METHODS
+    %       constructor
+    %
+    %======================================================================
+    %   Author: Eric Bokenfohr
+    %   Date: 2023-02-01
+    %======================================================================
     
     % Public properties
     properties

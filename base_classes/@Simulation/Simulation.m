@@ -1,6 +1,18 @@
 classdef Simulation
-    %SIMULATION Summary of this class goes here
+    %SIMULATION  Simulation class definition
     %   Detailed explanation goes here
+    %
+    %   PROPERTIES
+    %       assumps
+    %
+    %   METHODS
+    %       constructor
+    %       run
+    %
+    %======================================================================
+    %   Author: Eric Bokenfohr
+    %   Date: 2023-02-02
+    %======================================================================
     
     properties
         assumps AssumptionSet;

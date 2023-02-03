@@ -1,6 +1,19 @@
 classdef AssumptionSet
-    %UNTITLED3 Summary of this class goes here
+    %ASSUMPTIONSET  AssumptionSet class definition
     %   Detailed explanation goes here
+    %
+    %   PROPERTIES
+    %       component
+    %       user
+    %
+    %   METHODS
+    %       constructor
+    %       initialize
+    %
+    %======================================================================
+    %   Author: Eric Bokenfohr
+    %   Date: 2023-02-01
+    %======================================================================
     
     properties
         component Component;

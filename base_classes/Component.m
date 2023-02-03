@@ -1,6 +1,22 @@
 classdef Component
-    %COMPONENT Top-level component class
+    %COMPONENT  Top-level Component class definition
     %   Detailed explanation goes here
+    %
+    %   PROPERTIES
+    %       name: the name of the component
+    %       libraryName: the name of the Simulink library for the component
+    %       blockChoice: the block from the library to use
+    %       initialized: a flag to indicate if the component is initialized
+    %
+    %   METHODS
+    %       constructor
+    %       getSubComponents
+    %       initializeSubComponents
+    %
+    %======================================================================
+    %   Author: Eric Bokenfohr
+    %   Date: 2023-02-01
+    %======================================================================
     
     % Public properties
     properties
