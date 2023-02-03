@@ -4,7 +4,7 @@
 %   working as intended
 
 % Define the assumptions
-aero = aero_assump_2006Prototype;
+aero = aero_assump_2006Prototype();
 
 % Define the user
 user = AeroUser();

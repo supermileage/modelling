@@ -3,14 +3,19 @@ classdef FuelCell < Component
     %   Detailed explanation goes here
     
     properties
-        Property1
+        
+        cellCount
+        
     end
     
     methods
-        function obj = FuelCell()
+        function obj = FuelCell(blockChoice)
             %FUELCELL Construct an instance of this class
             %   Detailed explanation goes here
             obj@Component('fuelCell', 'fuelCellLibrary');
+            
+            % Set library block choice
+            obj.blockChoice = blockChoice;
         end
         
         function outputArg = method1(obj,inputArg)
