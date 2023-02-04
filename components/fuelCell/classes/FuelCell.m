@@ -5,6 +5,8 @@ classdef FuelCell < Component
     properties
         
         cellCount
+        activeArea
+        crossoverCurrentDensity
         
     end
     

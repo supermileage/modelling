@@ -11,6 +11,8 @@ function fc = fuelCell_assump_19cells()
 
     % Denfine properties
     fc.cellCount = 19;
+    fc.activeArea = 60;                     % [cm^2]
+    fc.crossoverCurrentDensity = 0.0025;    % [A cm^-2]
 
 end
 
