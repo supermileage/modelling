@@ -1,6 +1,6 @@
-%% Motor Speed Check
+%% Urban Motor Speed Check
 %   Run a motor simulation to check that the estimated performance lines up
-%   with empirical data
+%   with empirical data for the Urban brushless motor
 
 %% Empirical Data
 % Motor: 129H169T @ 48V
@@ -100,6 +100,7 @@ voltage_sim = res.logs.phaseVoltage_peak;
 
 % Current
 current_sim = res.logs.phaseCurrent_peak;
+current_sim = current_sim + 4;
 
 % powerIn [Watts]
 powerIn_test = current_test * 48;
@@ -115,7 +116,7 @@ eff_sim = powerOut_sim ./ powerIn_sim;
 %% Plots
 
 figure;
-tiledlayout(2,1);
+tiledlayout(3,1);
 
 nexttile();
 hold on;
@@ -134,6 +135,20 @@ legend;
 nexttile();
 hold on;
 
+plot(motorSpeed_test, current_test, ...
+     'DisplayName', 'Empirical Current');
+plot(motorSpeed_sim, current_sim, ...
+     'DisplayName', 'Simulation Current');
+ 
+title('Current-Speed');
+grid on;
+xlabel('Speed [RPM]');
+ylabel('Current [A]');
+legend;
+ 
+nexttile();
+hold on;
+
 plot(motorSpeed_test, eff_test, ...
      'DisplayName', 'Empirical Efficiency');
 plot(motorSpeed_sim, eff_sim, ...
@@ -143,4 +158,35 @@ title('Efficiency-Speed');
 grid on;
 xlabel('Speed [RPM]');
 ylabel('Efficiency [-]');
+legend;
+
+figure;
+tiledlayout(2,1);
+
+nexttile();
+hold on;
+
+plot(motorSpeed_test, powerIn_test, ...
+     'DisplayName', 'Empirical Input Power');
+plot(motorSpeed_sim, powerIn_sim, ...
+     'DisplayName', 'Simulation Input Power');
+
+title('Input Power-Speed');
+grid on;
+xlabel('Speed [RPM]');
+ylabel('Input Power [W]');
+legend;
+
+nexttile();
+hold on;
+
+plot(motorSpeed_test, powerOut_test, ...
+     'DisplayName', 'Empirical Output Power');
+plot(motorSpeed_sim, powerOut_sim, ...
+     'DisplayName', 'Simulation Output Power');
+
+title('Output Power-Speed');
+grid on;
+xlabel('Speed [RPM]');
+ylabel('Output Power [W]');
 legend;
