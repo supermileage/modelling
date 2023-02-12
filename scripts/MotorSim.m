@@ -1,5 +1,10 @@
 %% Motor Simulation
 %   Performance a simple motor simulation
+%
+%==========================================================================
+%   Author: Eric Bokenfohr
+%   Date: 2023-02-11
+%==========================================================================
 
 % Define component and user
 motor = motor_assump_129H169T();
