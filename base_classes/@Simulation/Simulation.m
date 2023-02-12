@@ -123,10 +123,12 @@ classdef Simulation
             % Post-processing
             res.time = out.tout;
             res.logs = struct;
-            for ii = 1 : out.logsout.numElements
-                logName = out.logsout{ii}.Name;
-                logData = out.logsout{ii}.Values.Data;
-                res.logs.(logName) = logData;
+            if out.logsout.numElements > 0
+                for ii = 1 : out.logsout.numElements
+                    logName = out.logsout{ii}.Name;
+                    logData = out.logsout{ii}.Values.Data;
+                    res.logs.(logName) = logData;
+                end
             end
         end
     end

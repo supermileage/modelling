@@ -1,16 +1,31 @@
 classdef Motor < Component
-    %UNTITLED4 Summary of this class goes here
+    %MOTOR  Summary of this class goes here
     %   Detailed explanation goes here
+    %
+    %======================================================================
+    %   Author: Eric Bokenfohr
+    %   Date: 2023-02-11
+    %======================================================================
     
     properties
-        Property1
+        motorName               % The name of the motor
+        poles                   % Number of poles
+        R_s                     % Stator winding resistance [Ohms]
+        lambda_PM               % PM flux linkage [Wb-turns or V-s]
+        L_ss                    % Winding inductance [H]
+        tau_s                   % Motor time constant [s]
     end
     
     methods
-        function obj = untitled4(inputArg1,inputArg2)
+        function obj = Motor(blockChoice)
             %UNTITLED4 Construct an instance of this class
             %   Detailed explanation goes here
-            obj.Property1 = inputArg1 + inputArg2;
+            
+            % Call parent constructor
+            obj@Component('motor', 'motorLibrary');
+            
+            % Set library block choice
+            obj.blockChoice = blockChoice;
         end
         
         function outputArg = method1(obj,inputArg)

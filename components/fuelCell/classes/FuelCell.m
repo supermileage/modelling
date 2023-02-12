@@ -1,13 +1,11 @@
 classdef FuelCell < Component
-    %FUELCELL Summary of this class goes here
+    %FUELCELL  Summary of this class goes here
     %   Detailed explanation goes here
     
     properties
-        
-        cellCount
-        activeArea
-        crossoverCurrentDensity
-        
+        cellCount                   % Number of cells in the stack
+        activeArea                  % Active area of each cell
+        crossoverCurrentDensity     % The crossover current density
     end
     
     methods

@@ -32,6 +32,15 @@ function conversion = convert(unit1, unit2)
     % Speed units
     'm/s', 1, 'speed';
     
+    % Rotation units
+    'rad/s', 1, 'rotation';
+    'rpm', 60/(2*pi), 'rotation';
+    
+    % Force units
+    'N', 1, 'force';
+    'kN', 1/1000, 'force';
+    'oz', 3.597, 'force';
+    
     };
 
     %% Ratio Calculation
