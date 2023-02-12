@@ -23,12 +23,12 @@ function motor = motor_assump_129H169T()
     motor.R_s = 0.053;                          % [Ohms] From datasheet
     
     % Lambda calculation using Kt
-    motor.lambda_PM = (2/3) * 2 * Kt / motor.poles;     % [Wb-turns or V-s]
+    %motor.lambda_PM = (2/3) * 2 * Kt / motor.poles;     % [Wb-turns or V-s]
     % Lambda calculation using the velocity constant
-    %motor.lambda_PM = 1 / velConst;             % [V-s or Wb-turns]
+    motor.lambda_PM = 1 / (velConst*motor.poles/2);      % [V-s or Wb-turns]
     
-    % Datasheet says winding inductance is 
-    motor.L_ss = 0.21 / 1000;                   % [H] From datasheet
+    % Datasheet says winding inductance is 0.21 mH
+    motor.L_ss = 0.06 / 1000;                   % [H]
     motor.tau_s = motor.L_ss / motor.R_s;       % [s]
 end
 

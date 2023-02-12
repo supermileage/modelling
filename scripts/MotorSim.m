@@ -10,7 +10,7 @@ user.stopTime = 2;
 user.timeProfile = [0 : 0.1 : 2];
 
 user.v_abc = 0*user.timeProfile + 48;
-user.motorSpeed = 0*user.timeProfile + 6064;
+user.motorSpeed = 0*user.timeProfile + 6954;
 
 % Create assumption set
 assump = AssumptionSet(motor, user);

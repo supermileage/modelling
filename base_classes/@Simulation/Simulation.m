@@ -123,12 +123,14 @@ classdef Simulation
             % Post-processing
             res.time = out.tout;
             res.logs = struct;
-            if out.logsout.numElements > 0
+            try
                 for ii = 1 : out.logsout.numElements
                     logName = out.logsout{ii}.Name;
                     logData = out.logsout{ii}.Values.Data;
                     res.logs.(logName) = logData;
                 end
+            catch
+                warning('No signals logged.');
             end
         end
     end
