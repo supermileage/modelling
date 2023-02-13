@@ -4,10 +4,10 @@ function fc = fuelCell_assump_19cells()
 %
 %==========================================================================
 %   Author: Eric Bokenfohr
-%   Date: 2023-02-02
+%   Date: 2023-02-12
 %==========================================================================
 
-    fc = FuelCell('baseModel');
+    fc = FuelCell('simple');
 
     % Denfine properties
     fc.cellCount = 19;
