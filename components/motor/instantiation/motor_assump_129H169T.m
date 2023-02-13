@@ -18,7 +18,7 @@ function motor = motor_assump_129H169T()
     velConst = 169 * convert('rpm','rad/s'); % [rad/s / V]
     
     % Define properties
-    motor.motorName = '129H169T_48V';
+    motor.motorName = '129H169T';
     motor.poles = 10;                           % [-] From datasheet
     motor.R_s = 0.053;                          % [Ohms] From datasheet
     
@@ -30,5 +30,6 @@ function motor = motor_assump_129H169T()
     % Datasheet says winding inductance is 0.21 mH
     motor.L_ss = 0.06 / 1000;                   % [H]
     motor.tau_s = motor.L_ss / motor.R_s;       % [s]
+    
 end
 
