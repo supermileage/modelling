@@ -5,59 +5,7 @@
 %% Empirical Data
 % Motor: 129H169T @ 48V
 
-motorSpeed_test = [6064;
-                   6360;
-                   6510;
-                   6709;
-                   6777;
-                   6954;
-                   7153;
-                   7366;
-                   7583;
-                   7805;
-                   8128;
-                  ];        %[rpm]
-              
-motorTorque_test = [198.82;
-                    173.55;
-                    152.69;
-                    134.46;
-                    115.01;
-                    95.34;
-                    76.05;
-                    56.61;
-                    38.59;
-                    20.98;
-                    0.00;
-                   ];       % [oz-in]
-               
-motorTorque_test = motorTorque_test * 0.00706;  % [Nm]
-               
-powerOut_test = [898.31;
-                 816.83;
-                 735.63;
-                 663.36;
-                 576.85;
-                 490.72;
-                 402.56;
-                 308.61;
-                 216.54;
-                 121.20;
-                 0.00;
-                ];          % [Watts]
-         
-current_test = [22.00;
-                20.00;
-                18.00;
-                16.00;
-                14.00;
-                12.00;
-                10.00;
-                8.00;
-                6.00;
-                4.00;
-                1.33;
-               ];           % [A]
+test = load('motor_data_129H169T.mat');
         
 %% Simulation
 
@@ -67,16 +15,16 @@ motor = motor_assump_129H169T();
 user = MotorUser();
 user.startTime = 0;
 user.stopTime = 33;
-user.timeProfile = linspace(0, 33, length(motorSpeed_test) * 3)';
+user.timeProfile = linspace(0, 33, length(test.motorSpeed) * 3)';
 
 user.v_abc = 0*user.timeProfile + 48;
 user.motorSpeed = zeros(length(user.timeProfile), 1);
 
-for ii = 1 : length(motorSpeed_test)
+for ii = 1 : length(test.motorSpeed)
     
     idx = [1, 2, 3] + 3*(ii-1);
     
-    user.motorSpeed(idx) = ones(3,1) * motorSpeed_test(ii);
+    user.motorSpeed(idx) = ones(3,1) * test.motorSpeed(ii);
     
 end
 
@@ -103,14 +51,14 @@ current_sim = res.logs.phaseCurrent_peak;
 current_sim = current_sim + 4;
 
 % powerIn [Watts]
-powerIn_test = current_test * 48;
+test.powerIn = test.current * 48;
 powerIn_sim = voltage_sim .* current_sim;
 
 % powerOut [Watts]
 powerOut_sim = motorSpeed_sim * convert('rpm','rad/s') .* motorTorque_sim;
 
 % Efficiency
-eff_test = powerOut_test ./ powerIn_test;
+test.eff = test.powerOut ./ test.powerIn;
 eff_sim = powerOut_sim ./ powerIn_sim;
 
 %% Plots
@@ -121,7 +69,7 @@ tiledlayout(3,1);
 nexttile();
 hold on;
 
-plot(motorSpeed_test, motorTorque_test, ...
+plot(test.motorSpeed, test.motorTorque, ...
      'DisplayName', 'Empirical Torque');
 plot(motorSpeed_sim, motorTorque_sim, ...
      'DisplayName', 'Simulation Torque');
@@ -135,7 +83,7 @@ legend;
 nexttile();
 hold on;
 
-plot(motorSpeed_test, current_test, ...
+plot(test.motorSpeed, test.current, ...
      'DisplayName', 'Empirical Current');
 plot(motorSpeed_sim, current_sim, ...
      'DisplayName', 'Simulation Current');
@@ -149,7 +97,7 @@ legend;
 nexttile();
 hold on;
 
-plot(motorSpeed_test, eff_test, ...
+plot(test.motorSpeed, test.eff, ...
      'DisplayName', 'Empirical Efficiency');
 plot(motorSpeed_sim, eff_sim, ...
      'DisplayName', 'Simulation Efficiency');
@@ -166,7 +114,7 @@ tiledlayout(2,1);
 nexttile();
 hold on;
 
-plot(motorSpeed_test, powerIn_test, ...
+plot(test.motorSpeed, test.powerIn, ...
      'DisplayName', 'Empirical Input Power');
 plot(motorSpeed_sim, powerIn_sim, ...
      'DisplayName', 'Simulation Input Power');
@@ -180,7 +128,7 @@ legend;
 nexttile();
 hold on;
 
-plot(motorSpeed_test, powerOut_test, ...
+plot(test.motorSpeed, test.powerOut, ...
      'DisplayName', 'Empirical Output Power');
 plot(motorSpeed_sim, powerOut_sim, ...
      'DisplayName', 'Simulation Output Power');
