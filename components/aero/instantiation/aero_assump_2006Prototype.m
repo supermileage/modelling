@@ -15,9 +15,9 @@ function aero = aero_assump_2006Prototype()
     % Define properties
     aero.density = 1.225;       % [kg/m^3]
     aero.frontalArea = 0.313;   % [m^2] From 2006 design report MATLAB code
-    aero.wettedArea = NaN;      % Not currently used
-    aero.Cd = 0.17;             % From 2006 design report MATLAB code
-    aero.Cl = NaN;              % Not currently used
+    aero.wettedArea = NaN;      % [m^2] Not currently used
+    aero.Cd = 0.17;             % [-] From 2006 design report MATLAB code
+    aero.Cl = NaN;              % [-] Not currently used
     
 end
 

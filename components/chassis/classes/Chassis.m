@@ -3,14 +3,18 @@ classdef Chassis < Component
     %   Detailed explanation goes here
     
     properties
-        Property1
+        vehicleMass     % Mass of the vehicle [-]
     end
     
     methods
-        function obj = Chassis(inputArg1,inputArg2)
+        function obj = Chassis(blockChoice)
             %CHASSIS Construct an instance of this class
             %   Detailed explanation goes here
-            obj.Property1 = inputArg1 + inputArg2;
+            
+            % Parent class constructor
+            obj@Component('chassis', 'chassisLibrary');
+            
+            obj.blockChoice = blockChoice;
         end
         
         function outputArg = method1(obj,inputArg)

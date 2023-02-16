@@ -22,11 +22,11 @@ classdef Aero < Component
     % Public properties
     properties
         
-        density
-        frontalArea;
-        wettedArea;
-        Cd;
-        Cl;
+        density             % Fluid density [kg/m^3]
+        frontalArea         % Aero frontal area [m^2]
+        wettedArea          % Aero wetted area [m^2]
+        Cd                  % Drag coefficient [-]
+        Cl                  % Lift coefficient [-]
         
     end
     
