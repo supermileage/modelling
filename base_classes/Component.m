@@ -20,12 +20,10 @@ classdef Component
     
     % Public properties
     properties
-        
         name;
         libraryName;
         blockChoice;
         initialized = false;
-        
     end
     
     % Private properties
