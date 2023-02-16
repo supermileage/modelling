@@ -3,7 +3,10 @@ classdef Chassis < Component
     %   Detailed explanation goes here
     
     properties
+        wheel Wheel
+        
         vehicleMass     % Mass of the vehicle [-]
+        numWheels       % The number of wheels [-]
     end
     
     methods
