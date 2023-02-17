@@ -2,6 +2,7 @@ customModel = CustomModel('FCPDrag');
 chassis = chassis_instance_FCP_SEMA2022;
 aero = aero_assump_2006Prototype;
 customModel.components = {chassis ; aero};
+clear chassis aero
 
 user = CustomUser();
 user.startTime = 0;

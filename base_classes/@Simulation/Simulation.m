@@ -53,9 +53,23 @@ classdef Simulation
                 set_param(modelName, 'LoadExternalInput', 'on', ...
                     'ExternalInput', 'externalInput');
                 
+                % Load in workspace variables
+                mdlWS = get_param(modelName, 'modelworkspace');
+                
+                % Save each component in the model workspace
+                for ii = 1 : length(comp.components)
+                    
+                    % Code here
+                    mdlWS.assignin(comp.components{ii}.name, ...
+                                   comp.components{ii});
+                    
+                end
+                
             else
-                modelName = configureComponentBlock(comp, user);
+                modelName = configureComponentBlock(obj);
             end
+            
+            save_system(modelName);
             
             % Run the simulation
             try
@@ -86,7 +100,7 @@ classdef Simulation
     end
     
     methods (Access = private)
-        
+        modelName = configureComponentBlock(obj)
     end
 end
 
