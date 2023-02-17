@@ -53,15 +53,14 @@ classdef Simulation
                 set_param(modelName, 'LoadExternalInput', 'on', ...
                     'ExternalInput', 'externalInput');
                 
-                % Load in workspace variables
-                mdlWS = get_param(modelName, 'modelworkspace');
-                
                 % Save each component in the model workspace
                 for ii = 1 : length(comp.components)
                     
                     % Code here
-                    mdlWS.assignin(comp.components{ii}.name, ...
-                                   comp.components{ii});
+                    % mdlWS.assignin(comp.components{ii}.name, ...
+                    %               comp.components{ii});
+                    assignin('base', comp.components{ii}.name, ...
+                             comp.components{ii});
                     
                 end
                 
