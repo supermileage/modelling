@@ -5,7 +5,8 @@ classdef Chassis < Component
     properties
         wheel Wheel
         
-        vehicleMass     % Mass of the vehicle [-]
+        vehicleMass     % Mass of the vehicle [kg]
+        driverMass      % Mass of the driver [kg]
         numWheels       % The number of wheels [-]
     end
     
