@@ -6,7 +6,7 @@ clear chassis aero
 
 user = CustomUser();
 user.startTime = 0;
-user.stopTime = 7;
+user.stopTime = 15;
 user.timeProfile = [user.startTime : 0.1 : user.stopTime]';
 
 user.inputs.vehicleSpeed = (26.6 / 3.6) * (1 - exp(-1*user.timeProfile));
