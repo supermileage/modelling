@@ -18,3 +18,6 @@ codegen/
 
 # Simulink cache files
 *.slxc
+
+# Old Simulink versions
+*.r20*

@@ -22,7 +22,6 @@ classdef User
         startTime;
         stopTime;
         timeProfile;
-        % Should timeStep factor in somewhere?
     end
     
     % Private properties

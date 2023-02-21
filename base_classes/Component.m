@@ -20,12 +20,10 @@ classdef Component
     
     % Public properties
     properties
-        
         name;
         libraryName;
         blockChoice;
         initialized = false;
-        
     end
     
     % Private properties
@@ -41,13 +39,39 @@ classdef Component
             obj.libraryName = libraryName;
         end
         
-        function outputArg = getSubComponents(obj)
+        function subComponents = getSubComponents(obj)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
             
             % Find subcomponents
-            
-            % Perform recursive getSubComponents
+            compProperties = properties(obj);
+            subComponents = cell(length(compProperties), 1);
+            numSubs = 0;
+
+            for ii = 1 : length(compProperties)
+                % Fetch the superclasses of the property
+                supClasses = superclasses(class(obj.(compProperties{ii})));
+
+                % If Component is a superclass, then its a subcomponent
+                % --> Save the subcomponent obj to the cell array
+                if any(strcmp('Component', supClasses))
+                    numSubs = numSubs + 1;
+                    subComponents{numSubs} = obj.(compProperties{ii});
+                end
+            end
+            subComponents = subComponents(1:numSubs); % Trim excess
+
+            % Recursively find the subcomponents of each subcomponent
+            for ii = 1 : numSubs
+                
+                % Find the subcomponents (i.e. the sub-subcomponents)
+                subSubComponents = subComponents{ii}.getSubComponents();
+
+                % Add sub-subcomponents to list
+                subComponents = [subComponents ; subSubComponents];
+
+            end
+
         end
         
         function success = initializeSubComponents(obj)
