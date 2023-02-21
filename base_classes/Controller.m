@@ -1,4 +1,4 @@
-classdef Controller
+classdef Controller < Component
     %CONTROLLER Summary of this class goes here
     %   Detailed explanation goes here
     

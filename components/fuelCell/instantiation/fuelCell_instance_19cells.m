@@ -1,4 +1,4 @@
-function fc = fuelCell_assump_19cells()
+function fc = fuelCell_instance_19cells()
 %FUELCELL_ASSUMP_19CELLS  Create instance of a 19-cell fuel cell stack
 %   Detailed explanation goes here
 %

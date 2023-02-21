@@ -1,4 +1,4 @@
-function aero = aero_assump_2006Prototype()
+function aero = aero_instance_2006Prototype()
 %AERO_ASSUMP_2006PROTOTYPE  Intantiation function for the 2006 Prototype
 %shell
 %   This function creates an instance of the 2006 UBC Supermileage

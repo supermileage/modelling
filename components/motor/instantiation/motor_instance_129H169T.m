@@ -1,4 +1,4 @@
-function motor = motor_assump_129H169T()
+function motor = motor_instance_129H169T()
 %MOTOR_ASSUMP_129H169T  Create an instance of the Koford 129H169T motor
 %   This function creates an instance of the Motor class that defines the
 %   Koford 129H169T motor at 48V using provided motor parameters. This
